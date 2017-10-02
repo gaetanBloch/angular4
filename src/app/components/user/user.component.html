@@ -10,6 +10,8 @@
   </li>
 </ul>
 
+<button (click)="onClick()">Click me</button>
+
 <h1>Hobbies</h1>
 <ul>
   <li *ngFor="let hobby of hobbies; let i = index">{{i + 1}}: {{hobby}}</li>

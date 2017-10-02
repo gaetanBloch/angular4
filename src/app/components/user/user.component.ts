@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class UserComponent implements OnInit {
+  static readonly GAETAN = "Gaëtan Bloch";
+  static readonly JEAN = "Jean Bloch";
+
   name: string;
   age: number;
   email: string;
   address: Address;
   hobbies: string[];
+  nameToggle: boolean = true;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-    this.name = "Gaëtan Bloch";
+    this.name = UserComponent.GAETAN;
     this.age = 28;
     this.email = 'gbloch@gmail.com';
     this.address = {
@@ -26,6 +31,16 @@ export class UserComponent implements OnInit {
       state: "Vendée"
     };
     this.hobbies = ['sports', 'movies', 'computers'];
+  }
+
+  onClick() {
+    this.nameToggle = !this.nameToggle;
+    if (this.nameToggle == true) {
+      this.name = UserComponent.GAETAN;
+    } else {
+      this.name = UserComponent.JEAN;
+    }
+    this.hobbies.push("New hobby");
   }
 }
 
